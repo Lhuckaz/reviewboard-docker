@@ -1,0 +1,26 @@
+memcached:
+    image: sylvainlasnier/memcached
+    restart: always
+    ports:
+        - "11211"
+data:
+    image: busybox
+    volumes:
+        - /.ssh
+        - /media
+    command: "true"
+web:
+    build: ./web
+    restart: always
+    environment:
+        - PGHOST=localhost
+        - PGPASSWORD=review
+        - PGUSER=review
+        - PGDB=reviewboard
+        - PGPORT=3306
+    volumes_from:
+        - "data"
+    links:
+        - "memcached:memcached"
+    ports:
+        - "80:80"
