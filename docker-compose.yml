@@ -13,7 +13,7 @@ web:
     build: ./web
     restart: always
     environment:
-        - PGHOST=localhost
+        - PGHOST=<host>
         - PGPASSWORD=review
         - PGUSER=review
         - PGDB=reviewboard
