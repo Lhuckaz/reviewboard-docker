@@ -6,7 +6,7 @@ Rodar um container para ser o banco:
 
     docker run --name mysql_reviewboard -e MYSQL_ROOT_PASSWORD=review -e MYSQL_USER=review -e MYSQL_PASSWORD=review -e MYSQL_DATABASE=reviewboard -d -p 3306:3306 mysql:5.5
 
-Trocar PGHOST para o IP do seu host
+Trocar em docker-compose.yml o PGHOST para o IP do seu host
 
     web:
       build: ./web
